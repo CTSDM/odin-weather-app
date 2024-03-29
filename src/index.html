@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <meta charset="utf-8">
+    <title>Weather web!</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="search-bar">
+            <div>
+                <form>
+                    <label for="search"></label>
+                    <input type="text" name="search" id="search" required placeholder="Seoul">
+                    <div class="image">
+                        <img src="<%=require('../src/img/magnify.svg')%>" alt="search icon">
+                    </div>
+                    <button type="submit">Submit!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <div class="simple-weather">
+            <div>
+                City: <span id="city"></span>
+            </div>
+            <div class="condition">
+                <span id="condition"></span>
+            </div>
+            <div>
+                <div class="temperature">
+                    Temperature: <span id="temperature"></span>
+                </div>
+                <div class="image">
+                    <img src="" alt="" id="weather-icon">
+                </div>
+            </div>
+        </div>
+        <div class="more-weather">
+            <div class="more-info">
+                <span></span>
+            </div>
+            <div class="more-info">
+                Feels like <span id="temp-feel"></span>
+            </div>
+            <div class="more-info">
+                Humidity: <span id="humidity"></span>
+            </div>
+        </div>
+</body>
+
+</html>

@@ -11,13 +11,12 @@
     <div class="header">
         <div class="search-bar">
             <div>
-                <form>
+                <form class="search-bar">
                     <label for="search"></label>
                     <input type="text" name="search" id="search" required placeholder="Seoul">
-                    <div class="image">
+                    <button class="search" type="submit">
                         <img src="<%=require('../src/img/magnify.svg')%>" alt="search icon">
-                    </div>
-                    <button type="submit">Submit!</button>
+                    </button>
                 </form>
             </div>
         </div>
@@ -27,14 +26,17 @@
 
         <div class="simple-weather">
             <div>
-                City: <span id="city"></span>
+                <div class="location">
+                    <span id="city"></span>, <span id="country"></span>
+                </div>
+                <img id="country-flag" src="" alt="country flag">
             </div>
             <div class="condition">
                 <span id="condition"></span>
             </div>
             <div>
                 <div class="temperature">
-                    Temperature: <span id="temperature"></span>
+                    Temperature: <span id="temperature"></span> °C
                 </div>
                 <div class="image">
                     <img src="" alt="" id="weather-icon">
@@ -46,10 +48,10 @@
                 <span></span>
             </div>
             <div class="more-info">
-                Feels like <span id="temp-feel"></span>
+                Feels like <span id="temp-feel"></span> °C
             </div>
             <div class="more-info">
-                Humidity: <span id="humidity"></span>
+                Humidity: <span id="humidity"></span>%
             </div>
         </div>
 </body>

@@ -5,6 +5,7 @@ const form = document.querySelector('form');
 import './api.js'
 import { getCurrentRawWeatherObj } from './api.js';
 import getDummyWeatherObj from './weatherDummyObj.js';
+import getCountryFlagSrc from './api_flag.js';
 
 form.addEventListener('submit', submitFoo);
 
@@ -44,11 +45,11 @@ function checkInputValidty() {
 }
 
 function updateDOM(weatherObj) {
-    console.log(weatherObj);
     const location = weatherObj.location;
     const weatherIcon = weatherObj.iconURL;
     const weatherStatus = weatherObj.status;
     updateCity(location);
+    updateCountry(location);
     updateTemperature(weatherObj.status.temp);
     updateTemperatureFeeling(weatherObj.status.feelslike);
     updateCondition(weatherObj.status.condition);
@@ -85,6 +86,18 @@ function updateTemperatureFeeling(tempFeel) {
     temperatureFeelsElement.textContent = String(tempFeel);
 }
 
+function updateCountry(location) {
+    const countryElement = document.getElementById('country');
+    const country = location.country;
+    countryElement.textContent = country;
+    updateCountryFlag(country);
+}
+
+async function updateCountryFlag(country) {
+    const countryFlagElement = document.getElementById('country-flag');
+    const srcFlag = await getCountryFlagSrc(country);
+    countryFlagElement.src = srcFlag;
+}
 
 function setIcon(icon) {
     iconImage.src = icon;
